@@ -7,8 +7,9 @@
 %
 %% I/O Variables
 % |IN 1 Double Matrix| *brela*: _B relative to A_  Homogeneous Transformation Matrix 4x4
+%
 % |IN 2 Double Matrix| *crelb*: _C relative to B_  Homogeneous Transformation Matrix 4x4
-% 
+%
 % |OUT Double Matrix| *crela*: _C relative to A_  Homogeneous Transformation Matrix 4x4
 %
 %% Example
