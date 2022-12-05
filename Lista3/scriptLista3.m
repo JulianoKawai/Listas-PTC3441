@@ -1,0 +1,10 @@
+Beff = 1;
+Jeff = 0.15;
+K = 1;
+r = 1/50;
+omega_r = 10;
+omega_n = 0.5*omega_r;
+Kp = Jeff*(omega_n^2)/K;
+Kd = (2*omega_n*Jeff-Beff)/K;
+Td = Kd/Kp;
+N = 3;
