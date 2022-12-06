@@ -1,6 +1,6 @@
 %% CUBCOEF  
-%  Encontra os coefientes para o polinomio que descreve o movimento do
-%  ligamento
+%  Escreve a solução para o manipulador planar RRR com base no objetivo
+%  instituido a partir do sistema da estação
 %
 %% Calling Syntax
 %  function [near,far,sol]=solve_robot(goal,current,trelw,srelb,L,thetalim)
@@ -39,7 +39,7 @@
 function [cc]=cubcoef(th0,thdot0,thf,thdotf,T)
     a0 = th0;
     a1 = thdot0;
-    a2 = ((thdotf/2*T) - (3*thf/T^2) + 3*a0 + a1*((-1/2*T)+(3/T)));
+    a2 = ((thdotf/2T) - (3*thf/T^2) + 3*a0 + a1*((-1/2*T)+(3/T)));
     a3 = (thf - a0 - a1*T - a2*T^2)/T^3;
     cc = [a0 a1 a2 a3];
 end
