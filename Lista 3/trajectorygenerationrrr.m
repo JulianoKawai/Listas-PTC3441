@@ -56,7 +56,13 @@ for b = 1:3
 end
 
 x = linspace(0,(length(traj_points(:,1))-1)*T, (length(traj_points(:,1))-1)*T/Ts);
-
+subplot(3,1,1);
 plot(x,thpath(:,1,1),x,thpath(:,1,2),x,thpath(:,1,3))
+grid on
+subplot(3,1,2);
+plot(x,thpath(:,2,1),x,thpath(:,2,2),x,thpath(:,2,3))
+grid on
+subplot(3,1,3);
+plot(x,thpath(:,3,1),x,thpath(:,3,2),x,thpath(:,3,3))
 grid on
 end
