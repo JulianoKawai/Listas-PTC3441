@@ -34,7 +34,6 @@ function [thpathi]=trajectorygeneration(traj_points, T, Ts)
 
 cctot = trajectoryplanning(traj_points,T);
 thpathi = zeros([(T/Ts)*length(cctot(:,1)),3]);
-disp(cctot)
 pps = T/Ts;
 
 for a=1:length(cctot(:,1))
@@ -45,8 +44,4 @@ for a=1:length(cctot(:,1))
         thpathi((a-1)*pps+b,3) = 2*cctot(a,3) + 6*cctot(a,4)*td;
     end  
 end
-% x = linspace(0,length(cctot(:,1))*T, length(cctot(:,1))*T/Ts);
-% 
-% plot(x,thpathi(:,1))
-% grid on
 end

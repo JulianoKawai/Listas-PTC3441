@@ -55,15 +55,35 @@ for b = 1:3
     thpath(:,:,b)=trajectorygeneration(traj_points(:,b), T, Ts);
 end
 
-% x = linspace(0,(length(traj_points(:,1))-1)*T, (length(traj_points(:,1))-1)*T/Ts);
-% subplot(3,1,1);
-% plot(x,thpath(:,1,1),x,thpath(:,1,2),x,thpath(:,1,3))
-% legend("theta1","theta2","theta3");
-% grid on
-% subplot(3,1,2);
-% plot(x,thpath(:,2,1),x,thpath(:,2,2),x,thpath(:,2,3))
-% grid on
-% subplot(3,1,3);
-% plot(x,thpath(:,3,1),x,thpath(:,3,2),x,thpath(:,3,3))
-% grid on
+x = linspace(0,(length(traj_points(:,1))-1)*T, (length(traj_points(:,1))-1)*T/Ts);
+
+
+subplot(3,1,1);
+title("trajetória do robô planar");
+hold on
+plot(x,thpath(:,1,1))
+plot(x,thpath(:,1,2))
+plot(x,thpath(:,1,3))
+hold off
+legend(["$\theta_{1}$","$\theta_{2}$","$\theta_{3}$"],'Interpreter','latex');
+grid on
+
+subplot(3,1,2);
+hold on
+plot(x,thpath(:,2,1))
+plot(x,thpath(:,2,2))
+plot(x,thpath(:,2,3))
+hold off
+legend(["$\dot{\theta_{1}}$","$\dot{\theta_{2}}$","$\dot{\theta_{3}}$"],'Interpreter','latex');
+grid on
+
+subplot(3,1,3);
+hold on
+plot(x,thpath(:,3,1))
+plot(x,thpath(:,3,2))
+plot(x,thpath(:,3,3))
+hold off
+legend(["$\ddot{\theta_{1}}$","$\ddot{\theta_{2}}$","$\ddot{\theta_{3}}$"],'Interpreter','latex');
+grid on
+
 end

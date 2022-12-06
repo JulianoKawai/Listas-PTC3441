@@ -46,4 +46,5 @@ for a = 2:length(traj_points)-1
     cctot(a-1,:) = cubcoef(traj_points(a-1),traj_vel(a-1),traj_points(a),traj_vel(a),T);
 end
 cctot(end,:) = cubcoef(traj_points(end-1),traj_vel(end-1),traj_points(end),traj_vel(end),T);
+
 end
