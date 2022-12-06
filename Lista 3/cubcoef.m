@@ -1,27 +1,23 @@
 %% CUBECOEF  
-% Calcula os coeficientes do polinômio de terceiro grau descrito pelas
-% posições e velocidades iniciais e finais de um determinado segmento,
-% assim como a duração do segmento.
+%  Calcula os coeficientes do polinômio de terceiro grau descrito pelas
+%  posições e velocidades iniciais e finais de um determinado segmento,
+%  assim como a duração do segmento.
 % 
 %% Calling Syntax
-% cc=cubcoef(th0,thdot0,thf,thdotf,T);
+%  cc=cubcoef(th0,thdot0,thf,thdotf,T);
 %
 %% I/O Variables
-% |IN 1 Double| *th0*: posição $\theta$ no instante inicial $t=0$ do
-% segmento [deg]
+%  |IN 1 Double| *th0*: joint angle at t=0 [deg]
 %
-% |IN 2 Double| *thdot0*: velocidade $\dot{\theta}$ no instante inicial
-% $t=0$ do segmento [deg/s]
+%  |IN 2 Double| *thdot0*: joint angular velocity at t=0 [deg/s]
 %
-% |IN 3 Double| *thf*: posição $\theta$ no instante final $t=T$ do segmento
-% [deg]
+%  |IN 3 Double| *thf*:  joint angle at t=T [deg]
 % 
-% |IN 4 Double| *thdotf*: velocidade $\dot{\theta}$ no instante final $t=T$
-% do segmento [deg/s]
+%  |IN 4 Double| *thdotf*: joint angular velocity at t=T [deg/s]
 %
-% |IN 5 Double| *T*: duração do segmento da trajetória [seg]
+%  |IN 5 Double| *T*: trajectory segment duration [seconds]
 %
-% |OUT 1 Double Array| *cc*: coeficientes da equação cúbica [a0 a1 a2 a3]
+%  |OUT 1 Double Array| *cc*: cubic equation coefficients [a0 a1 a2 a3]
 %
 %% Example
 %  th0 = 0;

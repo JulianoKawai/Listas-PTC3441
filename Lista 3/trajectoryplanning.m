@@ -1,32 +1,38 @@
 %% TRAJECTORYPLANNING 
-% Calcula os coeficientes do polinômio de terceiro grau descrito pelas
-% posições e velocidades iniciais e finais de um determinado segmento,
-% assim como a duração do segmento.
+%  Calcula os coeficientes de equações cúbicas para todos segmentos da trajetória de uma
+%  junta a partir dos valores de ângulo entre cada intervalo e de sua
+%  duração. 
 % 
 %% Calling Syntax
-% cc=cubcoef(th0,thdot0,thf,thdotf,T);
+%  cctot = trajectoryplanning(traj_points,T);
 %
 %% I/O Variables
-% |IN 1 Double| *th0*: 
+%  |IN 1 Double Array| *traj_points*: trajectory points of a joint 
+%  [theta_t0 theta_t1 ...] [deg deg ...]
 %
-% |IN 2 Double| *thdot0*: 
+%  |IN 2 Double| *T*: trajectory segment duration [seconds]
 %
-% |IN 3 Double| *thf*: 
-% 
-% |IN 4 Double| *thdotf*: 
-%
-% |IN 5 Double| *T*: 
-%
-% |OUT 1 Double Array| *cc*: coeficientes da equação cúbica [a0 a1 a2 a3]
+%  |OUT 1 Double Matrix| *cctot*: cubic equation coefficients for each
+%  segment
+%  [a0_t0 a1_t0 a2_t0 a3_t0;
+%   a0_t1 a1_t1 a2_t1 a3_t1;
+%   ...]
 %
 %% Example
-%  
+%  traj_points = [0 30 15 0];
+%  T = 3;
+%
+%  cctot = trajectoryplanning(traj_points,T);
 %
 %% Hypothesis
-% 
+%  Calcula polinômios da tragetória de juntas rotacionais. Instantes
+%  iniciais e finais com velocidade nula.
 %
 %% Limitations
-% 
+%  Somente para intervalos T constantes. Velocidades entre segmentos de
+%  direção de movimento diferentes são nulas e para segmentos de mesma
+%  direção de movimentos são médias aritméticas das velocidades
+%  adjacentes.
 %
 %% Function
 
