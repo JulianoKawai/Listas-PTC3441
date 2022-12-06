@@ -1,4 +1,4 @@
-%% CUBECOEF  
+%% TRAJECTORYPLANNING 
 % Calcula os coeficientes do polinômio de terceiro grau descrito pelas
 % posições e velocidades iniciais e finais de um determinado segmento,
 % assim como a duração do segmento.
