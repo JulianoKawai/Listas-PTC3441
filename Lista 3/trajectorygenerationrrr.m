@@ -20,7 +20,18 @@
 % |OUT 1 Double Array| *cc*: coeficientes da equação cúbica [a0 a1 a2 a3]
 %
 %% Example
-%  
+%  uform_vec = [0.758 0.173 0.0; 
+%              0.6  -0.3  45.0;
+%              -0.4 0.3  120.0;
+%              0.758 0.173 0.0];
+% 
+% trelw = [0.1 0.2 30.0];
+% srelb = [0.0 0.0 0.0];
+% 
+% T = 3;
+% Ts = 0.01;
+%
+% thpath = trajectorygenerationrrr(uform_vec, trelw, srelb, T, Ts);
 %
 %% Hypothesis
 % 
@@ -85,5 +96,16 @@ plot(x,thpath(:,3,3))
 hold off
 legend(["$\ddot{\theta_{1}}$","$\ddot{\theta_{2}}$","$\ddot{\theta_{3}}$"],'Interpreter','latex');
 grid on
+
+pontapath = zeros(length(thpath(:,1,1)),3);
+for c=1:length(thpath(:,1,1))
+    ponta = where_robot(thpath(c,1,:),trelw,srelb,L);  
+    pontapath(c,:) = itou(ponta);
+end
+
+figure
+hold on
+grid on
+comet(pontapath(:,1),pontapath(:,2))
 
 end
