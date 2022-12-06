@@ -1,29 +1,32 @@
-%% CUBECOEF  
-% Calcula os coeficientes do polinômio de terceiro grau descrito pelas
-% posições e velocidades iniciais e finais de um determinado segmento,
-% assim como a duração do segmento.
+%% TRAJECTORYGENERATION  
+% Discretisa o uma tragetória a partir de pontos do caminho e o tempo de
+% cada intervalo e o intervalor da discretização, retornando a tragetória
+% suavizada pelo polinômio de quarto grau e discretizado conforme os
+% parâmetros.
 % 
 %% Calling Syntax
-% cc=cubcoef(th0,thdot0,thf,thdotf,T);
+% thpathi=trajectorygeneration(traj_points, T, Ts);
 %
 %% I/O Variables
-% |IN 1 Double| *th0*: 
+% |IN 1 Double Matrix| *traj_points*: vector of angles of the initial, 
+% intermediate and final positions of the actuator
 %
-% |IN 2 Double| *thdot0*: 
+% |IN 2 Double| *T*: Time of each segment
 %
-% |IN 3 Double| *thf*: 
-% 
-% |IN 4 Double| *thdotf*: 
+% |IN 3 Double| *Ts*: Discretization resolution time for each segment
 %
-% |IN 5 Double| *T*: 
-%
-% |OUT 1 Double Array| *cc*: coeficientes da equação cúbica [a0 a1 a2 a3]
+% |OUT 1 Double Array| *thpathi*: Matrix containing position velocity and 
+% acceleration as columns and each instant discretized as rows
 %
 %% Example
-%  
+%  traj_points = [0 22 16 0];
+%  T = 3;
+%  Ts = 0.2;
+%  [thpathi]=trajectorygeneration(traj_points, T, Ts);
 %
 %% Hypothesis
-% 
+%  traj_points tenha pelomenos 2 pontos para se formar um intervalo
+%  Ts deve ser algumas vezes menor que T para que ocorra uma discretização
 %
 %% Limitations
 %  T deve ser divisível por Ts
