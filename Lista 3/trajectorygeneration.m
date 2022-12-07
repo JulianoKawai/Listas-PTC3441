@@ -9,7 +9,8 @@
 %
 %% I/O Variables
 % |IN 1 Double Matrix| *traj_points*: vector of angles of the initial, 
-% intermediate and final positions of the actuator
+%  intermediate and final positions of the actuator 1xN
+%  N = number of points
 %
 % |IN 2 Double| *T*: Time of each segment
 %
@@ -22,6 +23,7 @@
 %  traj_points = [0 22 16 0];
 %  T = 3;
 %  Ts = 0.2;
+%
 %  [thpathi]=trajectorygeneration(traj_points, T, Ts);
 %
 %% Hypothesis

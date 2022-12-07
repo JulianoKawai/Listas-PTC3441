@@ -1,23 +1,29 @@
-%% CUBECOEF  
-% Calcula os coeficientes do polinômio de terceiro grau descrito pelas
-% posições e velocidades iniciais e finais de um determinado segmento,
-% assim como a duração do segmento.
+%% TRAJECTORYGENERATIONRRR
+%  Função retorna os valores de posição, velocidade e aceleração de cada
+%  junta rotacional do robô no decorrer do movimento, recebendo os valores
+%  de posição que deseja movimentar o robô, deslocamento da ferramenta ao 
+%  punho, da base em relação a mesa, além do tempo de cada intervalo e o 
+%  tempo de discretização.
 % 
 %% Calling Syntax
-% cc=cubcoef(th0,thdot0,thf,thdotf,T);
+% [thpath]=trajectorygenerationrrr(uform_vec, trelw, srelb, T, Ts)
 %
 %% I/O Variables
-% |IN 1 Double| *th0*: 
+% |IN 1 Double Matrix| *uform_vec*: Three-dimensional matrix Nx3x3 with
+%  position, velocity and acceleration vectors of the 3 joints
+%  N = number of trajectory points
 %
-% |IN 2 Double| *thdot0*: 
+% |IN 2 Double Array| *trelw*: User form  [x y theta]
+%  [meters meters degrees]
 %
-% |IN 3 Double| *thf*: 
+% |IN 3 Double Array| *srelb*: User form  [x y theta]
+%  [meters meters degrees]
 % 
-% |IN 4 Double| *thdotf*: 
+% |IN 4 Double| *T*: Time of each segment
 %
-% |IN 5 Double| *T*: 
+% |IN 5 Double| *Ts*: Discretization resolution time for each segment
 %
-% |OUT 1 Double Array| *cc*: coeficientes da equação cúbica [a0 a1 a2 a3]
+% |OUT 1 Double Matrix| *thpath*: 
 %
 %% Example
 %  uform_vec = [0.758 0.173 0.0; 
@@ -34,10 +40,11 @@
 % thpath = trajectorygenerationrrr(uform_vec, trelw, srelb, T, Ts);
 %
 %% Hypothesis
-% 
+%  A trajetória deve conter pelomenos 2 posições
+%  Ts deve ser algumas vezes menor que T para que ocorra uma discretização
 %
 %% Limitations
-% 
+%  T deve ser divisível por Ts
 %
 %% Function
 
